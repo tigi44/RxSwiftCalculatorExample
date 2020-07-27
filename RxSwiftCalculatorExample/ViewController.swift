@@ -104,6 +104,8 @@ extension ViewController {
     
     private func setupUI() {
         
+        view.backgroundColor = .white
+        
         calculatorResultLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(calculatorResultLabel)
         
@@ -128,6 +130,7 @@ class CalculatorResultLabel: UILabel {
         super.init(frame: frame)
         
         backgroundColor     = .white
+        textColor           = .black
         textAlignment       = .right
         layer.masksToBounds = true
         layer.cornerRadius  = 10
