@@ -39,6 +39,11 @@ class CalculatorViewModel {
                 case .clear:
                     self.inputClear()
                     break
+                case .empty:
+                    break
+                case .dot:
+                    self.inputDot()
+                    break
                 }
             case let numberButton as NumberButton:
                 self.inputNumber(numberButton.text())
@@ -53,8 +58,16 @@ class CalculatorViewModel {
 }
 extension CalculatorViewModel {
     private func inputNumber(_ number: String) {
-        self.currentNumber = NSNumber(value: Double("\(self.currentNumber)" + number) ?? 0)
+        let dotString = self.labelString.hasSuffix(".") ? "." : ""
+        
+        self.currentNumber = NSNumber(value: Double("\(self.currentNumber)" + dotString + number) ?? 0)
         self.labelString = "\(self.currentNumber)"
+    }
+    
+    private func inputDot() {
+        if !self.labelString.contains(".") {
+            self.labelString = self.labelString + "."
+        }
     }
     
     private func inputClear() {
@@ -80,6 +93,7 @@ extension CalculatorViewModel {
 
     private func inputOperator(_ inputOperator: OperatorButton) {
         let result = executeLastOperator()
+        
         self.lastOperator = inputOperator
         self.lastNumber = result
         self.currentNumber = 0

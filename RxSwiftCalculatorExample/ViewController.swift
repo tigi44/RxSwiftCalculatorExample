@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     let collectionViewData: [CalculatorButton]   = [FunctionalButton.clear, OperatorButton.plus, OperatorButton.subtract, OperatorButton.multiply,
                                                     NumberButton.one, NumberButton.two, NumberButton.three, OperatorButton.divide,
                                                     NumberButton.four, NumberButton.five, NumberButton.six, OperatorButton.equals,
-                                                    NumberButton.seven, NumberButton.eight, NumberButton.nine, NumberButton.zero]
+                                                    NumberButton.seven, NumberButton.eight, NumberButton.nine, FunctionalButton.empty,
+                                                    NumberButton.zero, FunctionalButton.dot]
     let calculatorViewModel: CalculatorViewModel = CalculatorViewModel()
     
     override func viewDidLoad() {

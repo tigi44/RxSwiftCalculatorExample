@@ -15,11 +15,17 @@ protocol CalculatorButton {
 
 enum FunctionalButton: CalculatorButton {
     case clear
+    case empty
+    case dot
     
     func text() -> String {
         switch self {
         case .clear:
             return "clear"
+        case .empty:
+            return ""
+        case .dot:
+            return "."
         }
     }
 }
